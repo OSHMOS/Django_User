@@ -143,6 +143,9 @@ AUTHENTICATION_BACKENDS = [
 ACCOUNT_SIGNUP_REDIRECT_URL = "index"
 LOGIN_REDIRECT_URL = "index"
 
+# 로그아웃 중간과정 생략
+ACCOUNT_LOGOUT_ON_GET = True
+
 # Email Settings
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
