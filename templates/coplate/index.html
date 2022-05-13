@@ -1,1 +1,17 @@
+{% comment %} 템플릿에서 유저에 접근할 때, user로 접근 가능 {% endcomment %}
+<navbar>
+    {% if user.is_authenticated %}
+        <a href="{% url 'account_logout' %}">로그아웃</a>
+    {% else %}
+        <a href="{% url 'account_login' %}">로그인</a>
+        <a href="{% url 'account_signup' %}">회원가입</a>
+    {% endif %}
+</navbar>
+
 <h1>홈페이지</h1>
+
+{% if user.is_authenticated %}
+    <p>안녕하세요, {{user}}님!</p>
+{% else %}
+    <p>로그아웃된 상태입니다.</p>
+{% endif %}
