@@ -93,16 +93,7 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": "coplate.validators.CustomPasswordValidator",
     },
 ]
 
@@ -149,6 +140,12 @@ ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SIGNUP_FORM_CLASS = "coplate.forms.SignupForm"
+ACCOUNT_SESSION_REMEMBER = True
+# 3600초동안 유저를 기억합니다.
+SESSION_COOKIE_AGE = 3600
+# 비밀번호 또는 비밀번호 외의 곳에서 유효성 검사에 걸렸을 때 이전 비밀번호를 남게 해주는 코드
+ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True
 
 # Email Settings
 
